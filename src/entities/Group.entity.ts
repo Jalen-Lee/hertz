@@ -10,7 +10,9 @@ import {
 import { GroupMessageEntity } from './GroupMessage.entity'
 import { UserProfileEntity } from './UserProfile.entity'
 
-@Entity()
+@Entity({
+  name: 'group',
+})
 export class GroupEntity {
   // 群聊id
   @PrimaryGeneratedColumn('uuid')

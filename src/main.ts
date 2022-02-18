@@ -33,7 +33,7 @@ async function bootstrap() {
   // API 设置全局前缀
   app.setGlobalPrefix('/api/v1')
 
-  await app.listen(9527)
+  await app.listen(4396)
 }
 
 bootstrap().then(() => {

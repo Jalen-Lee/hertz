@@ -16,7 +16,30 @@ enum GENDER {
   NULL = 2,
 }
 
-@Entity()
+const globalPrefix = 'http://localhost:9527/static/avatar/'
+const avatars = [
+  `${globalPrefix}avatar-1.png`,
+  `${globalPrefix}avatar-2.png`,
+  `${globalPrefix}avatar-3.png`,
+  `${globalPrefix}avatar-4.png`,
+  `${globalPrefix}avatar-5.png`,
+  `${globalPrefix}avatar-6.png`,
+  `${globalPrefix}avatar-7.png`,
+  `${globalPrefix}avatar-8.png`,
+  `${globalPrefix}avatar-9.png`,
+  `${globalPrefix}avatar-10.png`,
+  `${globalPrefix}avatar-11.png`,
+  `${globalPrefix}avatar-12.png`,
+]
+
+function randomAvatar() {
+  const index = parseInt(String(Math.random() * 12), 10)
+  return avatars[index]
+}
+
+@Entity({
+  name: 'profile',
+})
 export class UserProfileEntity {
   // 数据库id
   @PrimaryGeneratedColumn('uuid')
@@ -27,7 +50,10 @@ export class UserProfileEntity {
   username: string
 
   // 头像
-  @Column({ default: 'example.jpg' })
+  @Column({
+    default:
+      'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
+  })
   avatar: string
 
   // 个性签名
@@ -48,6 +74,16 @@ export class UserProfileEntity {
   @ManyToMany(() => GroupEntity, (groups) => groups.attendees, {
     onDelete: 'CASCADE',
   })
-  @JoinTable()
+  @JoinTable({
+    name: 'profile_with_groups',
+    joinColumn: {
+      name: 'profile_id',
+      referencedColumnName: 'id',
+    },
+    inverseJoinColumn: {
+      name: 'group_id',
+      referencedColumnName: 'id',
+    },
+  })
   groups: GroupEntity[]
 }

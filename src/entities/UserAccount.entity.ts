@@ -15,7 +15,9 @@ enum Role {
   ADMIN = 1,
 }
 
-@Entity()
+@Entity({
+  name: 'account',
+})
 @Unique(['account'])
 export class UserAccountEntity {
   // 数据库id
@@ -42,6 +44,8 @@ export class UserAccountEntity {
   @OneToOne(() => UserProfileEntity, (profile) => profile.account, {
     onDelete: 'CASCADE',
   })
-  @JoinColumn()
+  @JoinColumn({
+    name: 'profile_id',
+  })
   profile: UserProfileEntity
 }

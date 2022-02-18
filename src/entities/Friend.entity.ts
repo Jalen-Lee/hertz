@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   OneToOne,
   CreateDateColumn,
+  JoinColumn,
 } from 'typeorm'
 import { UserProfileEntity } from './UserProfile.entity'
 
@@ -17,6 +18,7 @@ export class FriendEntity {
   friend_uid: string
 
   @OneToOne(() => UserProfileEntity)
+  @JoinColumn({ name: 'friend_profile_id' })
   friend_profile: UserProfileEntity
 
   @Column()

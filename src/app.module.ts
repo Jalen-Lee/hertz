@@ -10,6 +10,7 @@ import { AuthModule } from './modules/auth/auth.module'
 import { UsersModule } from './modules/user/user.module'
 import { ChatModule } from './modules/chat/chat.module'
 import { GroupModule } from './modules/group/group.module'
+import { FriendModule } from './modules/friend/friend.module'
 
 @Module({
   imports: [
@@ -35,6 +36,8 @@ import { GroupModule } from './modules/group/group.module'
     ChatModule,
     // 群聊模块
     GroupModule,
+    // 好友模块
+    FriendModule,
   ],
   controllers: [AppController],
   providers: [AppService],

@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common'
 import { JwtService } from '@nestjs/jwt'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import UserEntity from '../../entities/user.entity'
 
 import { UserAccountEntity } from '../../entities/UserAccount.entity'
 import { UserProfileEntity } from '../../entities/UserProfile.entity'
@@ -24,8 +23,6 @@ import { ErrorCode } from '../../common/constants'
 @Injectable()
 export default class AuthService {
   constructor(
-    @InjectRepository(UserEntity)
-    private readonly userRepository: Repository<UserEntity>,
     @InjectRepository(UserAccountEntity)
     private readonly accountRepo: Repository<UserAccountEntity>,
     @InjectRepository(UserProfileEntity)

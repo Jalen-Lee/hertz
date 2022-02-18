@@ -14,7 +14,9 @@ interface senderInfo {
   gender: string
 }
 
-@Entity()
+@Entity({
+  name: 'group_message',
+})
 export class GroupMessageEntity {
   // 群消息id
   @PrimaryGeneratedColumn('uuid')
