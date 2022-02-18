@@ -1,5 +1,11 @@
 import { join } from 'path'
 import { registerAs } from '@nestjs/config'
+import { UserAccountEntity } from '../entities/UserAccount.entity'
+import { UserProfileEntity } from '../entities/UserProfile.entity'
+import { GroupEntity } from '../entities/Group.entity'
+import { GroupMessageEntity } from '../entities/GroupMessage.entity'
+import { FriendEntity } from '../entities/Friend.entity'
+import { FriendMessageEntity } from '../entities/FriendMessage.entity'
 
 export default registerAs('database', () => ({
   type: 'mysql',
@@ -8,6 +14,13 @@ export default registerAs('database', () => ({
   username: 'root',
   password: 'ljlyyds123',
   database: 'hertz-qa', // grace-chat-v1
-  entities: [join(__dirname, '../', '**/**.entity{.ts,.js}')],
+  entities: [
+    UserAccountEntity,
+    UserProfileEntity,
+    GroupEntity,
+    GroupMessageEntity,
+    FriendMessageEntity,
+    FriendEntity,
+  ],
   synchronize: true,
 }))

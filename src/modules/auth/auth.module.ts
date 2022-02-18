@@ -4,7 +4,6 @@ import AuthService from './auth.service'
 import { jwtConstants } from './constants'
 import LocalStrategy from '../../strategies/local.strategy'
 import JwtStrategy from '../../strategies/jwt.strategy'
-import UserEntity from '../../entities/user.entity'
 
 import { PassportModule } from '@nestjs/passport'
 import { TypeOrmModule } from '@nestjs/typeorm'
@@ -18,7 +17,6 @@ import { GroupMessageEntity } from '../../entities/GroupMessage.entity'
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      UserEntity,
       UserAccountEntity,
       UserProfileEntity,
       GroupEntity,
