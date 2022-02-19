@@ -8,6 +8,7 @@ import { UserAccountEntity } from '../../entities/UserAccount.entity'
 import { UserProfileEntity } from '../../entities/UserProfile.entity'
 import { GroupEntity } from '../../entities/Group.entity'
 import { Repository } from 'typeorm'
+import { ConversationEntity } from '../../entities/Conversation.entity'
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { Repository } from 'typeorm'
       UserAccountEntity,
       UserProfileEntity,
       GroupEntity,
+      ConversationEntity,
     ]),
   ],
   providers: [GroupService, JwtStrategy],
@@ -24,6 +26,8 @@ export class GroupModule implements OnModuleInit {
   constructor(
     @InjectRepository(GroupEntity)
     private readonly groupRepo: Repository<GroupEntity>,
+    @InjectRepository(ConversationEntity)
+    private readonly conversationsRepo: Repository<ConversationEntity>,
   ) {}
   async onModuleInit() {
     try {

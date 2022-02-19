@@ -25,7 +25,7 @@ export class GroupEntity {
   // 群聊头像
   @Column({
     default:
-      'https://c-ssl.duitang.com/uploads/blog/202107/17/20210717232533_2edcf.thumb.1000_0.jpg',
+      'https://portrait.gitee.com/uploads/avatars/namespace/616/1850091_oimchat_1578991198.png!avatar100',
   })
   icon: string
 

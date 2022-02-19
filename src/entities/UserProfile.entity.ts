@@ -9,6 +9,8 @@ import {
 } from 'typeorm'
 import { UserAccountEntity } from './UserAccount.entity'
 import { GroupEntity } from './Group.entity'
+import { FriendEntity } from "./Friend.entity";
+import { ConversationEntity } from "./Conversation.entity";
 
 enum GENDER {
   MALE = 0,

@@ -6,6 +6,7 @@ import { GroupEntity } from '../entities/Group.entity'
 import { GroupMessageEntity } from '../entities/GroupMessage.entity'
 import { FriendEntity } from '../entities/Friend.entity'
 import { FriendMessageEntity } from '../entities/FriendMessage.entity'
+import { ConversationEntity } from '../entities/Conversation.entity'
 
 export default registerAs('database', () => ({
   type: 'mysql',
@@ -21,6 +22,7 @@ export default registerAs('database', () => ({
     GroupMessageEntity,
     FriendMessageEntity,
     FriendEntity,
+    ConversationEntity,
   ],
   synchronize: true,
 }))
