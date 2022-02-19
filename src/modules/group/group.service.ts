@@ -83,4 +83,29 @@ export class GroupService {
       }
     } catch (err) {}
   }
+
+  /**
+   * 获取用户所有群聊
+   * @param uid
+   */
+  async getUserGroups(uid: string): Promise<any> {
+    try {
+      const profile = await this.profileRepo.findOne(uid, {
+        relations: ['groups'],
+      })
+      if (!profile) {
+        return Promise.reject(new Error('获取用户所有群聊错误，用户不存在！'))
+      } else {
+        const groups = profile.groups.map((group) => ({
+          ...group,
+          type: 'group',
+        }))
+        return Promise.resolve({
+          data: groups,
+        })
+      }
+    } catch (err) {
+      return Promise.reject(err)
+    }
+  }
 }

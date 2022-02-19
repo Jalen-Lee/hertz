@@ -23,7 +23,10 @@ export class GroupEntity {
   name: string
 
   // 群聊头像
-  @Column({ default: 'example.jpg' })
+  @Column({
+    default:
+      'https://c-ssl.duitang.com/uploads/blog/202107/17/20210717232533_2edcf.thumb.1000_0.jpg',
+  })
   icon: string
 
   // 群聊描述

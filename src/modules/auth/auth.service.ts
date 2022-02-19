@@ -47,12 +47,14 @@ export default class AuthService {
       return {
         code: ErrorCode.SUCCESS,
         data: {
-          uid: profile.id,
-          username: profile.username,
-          avatar: profile.avatar,
-          gender: profile.gender,
-          email: profile.email,
-          description: profile.description,
+          userinfo: {
+            uid: profile.id,
+            username: profile.username,
+            avatar: profile.avatar,
+            gender: profile.gender,
+            email: profile.email,
+            description: profile.description,
+          },
           token: this.jwtService.sign({
             iat: nowTime,
             account,
@@ -60,8 +62,8 @@ export default class AuthService {
             sub: profile.id,
           }),
           tokenExpired: nowTime + ms('3 days'),
-          err_msg: '账号登录成功',
         },
+        err_msg: '账号登录成功',
       }
     } catch (err) {
       console.log('登陆请求错误', err)
@@ -100,12 +102,14 @@ export default class AuthService {
       return {
         code: ErrorCode.SUCCESS,
         data: {
-          uid: profile.id,
-          username: profile.username,
-          avatar: profile.avatar,
-          gender: profile.gender,
-          email: profile.email,
-          description: profile.description,
+          userinfo: {
+            uid: profile.id,
+            username: profile.username,
+            avatar: profile.avatar,
+            gender: profile.gender,
+            email: profile.email,
+            description: profile.description,
+          },
           token: this.jwtService.sign({
             iat: nowTime,
             account,
@@ -113,8 +117,8 @@ export default class AuthService {
             sub: profile.id,
           }),
           tokenExpired: nowTime + ms('3 days'),
-          err_msg: '账号注册成功',
         },
+        err_msg: '账号注册成功',
       }
     } catch (err) {
       console.log('账号注册错误', err)
@@ -144,14 +148,16 @@ export default class AuthService {
         return {
           code: 0,
           data: {
-            uid: profile.id,
-            username: profile.username,
-            avatar: profile.avatar,
-            gender: profile.gender,
-            email: profile.email,
-            description: profile.description,
-            err_msg: 'token校验成功',
+            userinfo: {
+              uid: profile.id,
+              username: profile.username,
+              avatar: profile.avatar,
+              gender: profile.gender,
+              email: profile.email,
+              description: profile.description,
+            },
           },
+          err_msg: 'token校验成功',
         }
       } else {
         return {

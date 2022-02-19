@@ -1,8 +1,7 @@
-import { Module } from '@nestjs/common'
+import { Module, OnModuleInit } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { ChatGateway } from './chat.gateway'
-import { InjectRepository } from '@nestjs/typeorm'
-import { Repository } from 'typeorm'
+import { GroupService } from '../group/group.service'
 
 import { UserAccountEntity } from '../../entities/UserAccount.entity'
 import { UserProfileEntity } from '../../entities/UserProfile.entity'
@@ -16,6 +15,10 @@ import { GroupEntity } from '../../entities/Group.entity'
       GroupEntity,
     ]),
   ],
-  providers: [ChatGateway],
+  providers: [ChatGateway, GroupService],
 })
-export class ChatModule {}
+export class ChatModule implements OnModuleInit {
+  async onModuleInit() {
+    console.log('chat module初始化')
+  }
+}
