@@ -42,6 +42,11 @@ export class ConversationService {
     }
   }
 
+  /**
+   * 添加会话
+   * @param payload
+   */
+
   async addConversation(payload: any) {
     try {
       const { uid, peer_id, type, name, avatar } = payload
