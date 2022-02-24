@@ -37,5 +37,8 @@ async function bootstrap() {
 }
 
 bootstrap().then(() => {
+  const items = null
+  const res = items?.map((i) => i) || []
+  console.log('res', res)
   console.log('hertz-server 已启动')
 })

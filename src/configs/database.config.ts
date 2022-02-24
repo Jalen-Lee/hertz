@@ -10,11 +10,11 @@ import { ConversationEntity } from '../entities/Conversation.entity'
 
 export default registerAs('database', () => ({
   type: 'mysql',
-  host: '101.35.4.147',
-  port: 3306,
-  username: 'root',
-  password: 'ljlyyds123',
-  database: 'hertz-qa', // grace-chat-v1
+  host: '',
+  port: '',
+  username: '',
+  password: '',
+  database: '', // grace-chat-v1
   entities: [
     UserAccountEntity,
     UserProfileEntity,
